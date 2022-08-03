@@ -270,7 +270,7 @@ export default function Tokens(props) {
                                     <StepContent>
                                         The token is added to your wallet!
                                         <br />
-                                        Support the development of this project by donating to the project on <a href="">Gitcoin</a>
+                                        Support the development of this project by donating to the project on <a href="https://gitcoin.co/grants/7016/add-token-to-wallet">Gitcoin</a>
                                     </StepContent>
                                 </Step>
                             </Stepper>
