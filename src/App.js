@@ -9,6 +9,7 @@ function App() {
       headerColor="#FFEA11"
       appName="Add Token to Wallet"
       appSubtitle="Cannot believe how hard it is to add a token to the wallet without this tool"
+      repo="madhavanmalolan/addtokentowallet"
     >
       <Tokens />
     </Layout>

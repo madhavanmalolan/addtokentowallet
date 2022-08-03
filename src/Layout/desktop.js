@@ -34,7 +34,7 @@ export default function LayoutDesktop(props) {
                     <h1 className="layout-header-logo-title">{props.appName}</h1>
                     <p className="layout-header-logo-subtitle">{props.appSubtitle}</p>
                     <GitHubButton 
-                        href={`https://github.com/${props.repo}/fork`} data-color-scheme="no-preference: dark_dimmed; light: dark; dark: dark;" data-size="large" data-show-count="true" aria-label="Fork madhavanmalolan/addtokentowallet on GitHub"
+                        href={`https://github.com/${props.repo}`} data-color-scheme="no-preference: dark_dimmed; light: dark; dark: dark;" data-size="large" data-show-count="true" aria-label="Fork madhavanmalolan/addtokentowallet on GitHub"
                         style={{
                             marginTop: '1rem',
                         }}
