@@ -5,13 +5,12 @@ import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, Step, StepContent, StepLabel } from "@mui/material";
+import { Step, StepContent, StepLabel } from "@mui/material";
 import axios from "axios";
 
 import {
 	Card,
 	CardHeader,
-	Avatar,
 	Button,
 	Modal,
 	Typography,
@@ -20,11 +19,7 @@ import {
 
 import "@rainbow-me/rainbowkit/styles.css";
 
-import {
-	darkTheme,
-	getDefaultWallets,
-	RainbowKitProvider,
-} from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 import { ConnectButton, lightTheme } from "@rainbow-me/rainbowkit";
@@ -65,10 +60,10 @@ export default function Tokens(props) {
 		if (!token) return;
 		setStep(0);
 		console.log(wagmiClient.status);
-		if (wagmiClient.status == "connected") {
+		if (wagmiClient.status === "connected") {
 			setStep(1);
 		}
-		if ((await wagmiClient.connector.getChainId()) == token.chainId) {
+		if ((await wagmiClient.connector.getChainId()) === token.chainId) {
 			setStep(2);
 		} else {
 			await wagmiClient.connector.connect(token.chainId);
@@ -99,9 +94,10 @@ export default function Tokens(props) {
 		};
 		fetch();
 	}, []);
+
 	const onFilterChange = () => {
 		const filtered = tokens.filter((token) => {
-			if (network != 0 && token.chainId != network) return false;
+			if (network !== 0 && token.chainId !== network) return false;
 			return (
 				token.name.toLowerCase().includes(query.toLowerCase()) ||
 				token.symbol.toLowerCase().includes(query.toLowerCase())
@@ -109,9 +105,12 @@ export default function Tokens(props) {
 		});
 		setFilteredTokens(filtered);
 	};
+
 	useEffect(() => {
 		onFilterChange();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query, network]);
+
 	return (
 		<WagmiConfig client={wagmiClient}>
 			<RainbowKitProvider chains={chains} theme={lightTheme()}>
@@ -163,7 +162,13 @@ export default function Tokens(props) {
 								width: "80%",
 							}}>
 							<CardHeader
-								avatar={<img style={{ height: "3rem" }} src={token.logoURI} />}
+								avatar={
+									<img
+										alt="avatar"
+										style={{ height: "3rem" }}
+										src={token.logoURI}
+									/>
+								}
 								action={
 									<Button
 										onClick={() => {
